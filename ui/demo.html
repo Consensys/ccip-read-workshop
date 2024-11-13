@@ -30,7 +30,7 @@
             }]
         const PROVIDER_URL = "https://sepolia.drpc.org";
         
-        window.callContractFunction = async function() {
+        window.callVeraxFetcher = async function() {
             try {
                 const veraxFetcherContractAddress = document.getElementById("veraxFetcherContractAddress").value;
                 const attestationId = document.getElementById("attestationId").value;
@@ -58,7 +58,7 @@
     <label for="attestationId">Attestation ID:</label>
     <input type="text" id="attestationId" name="attestationId" value="0x00000000000000000000000000000000000000000000000000000000000001f4" style="width: 500px;">
     <br /> <br />
-    <button onclick="callContractFunction()">Get attestation</button>
+    <button onclick="callVeraxFetcher()">Get attestation</button>
     <br /> <br />
     <div id="result"></div>
     <br /> <br />
