@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VeraxFetcher Interface</title>
+</head>
+<body>
+
+
+    <script type="module">
+        import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js";
+
+        const CONTRACT_ABI = [{
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "attestationId",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "getAttestation",
+            "outputs": [
+                {
+                    "internalType": "bytes",
+                    "name": "",
+                    "type": "bytes"
+                }
+            ],  
+            "stateMutability": "view",
+            "type": "function"
+            }]
+        const PROVIDER_URL = "https://sepolia.drpc.org";
+        
+        window.callContractFunction = async function() {
+            try {
+                const veraxFetcherContractAddress = document.getElementById("veraxFetcherContractAddress").value;
+                const attestationId = document.getElementById("attestationId").value;
+                const provider = new ethers.JsonRpcProvider(PROVIDER_URL);
+                const contract = new ethers.Contract(veraxFetcherContractAddress, CONTRACT_ABI, provider);
+                const result = await contract.getAttestation(attestationId, {
+                    enableCcipRead: true,
+                });
+                document.getElementById("result").innerText = `Attestation: ${result}`;
+
+                if(result === "0x0000000000000000000000000000000000000000000000000000000000000000"){
+                    document.getElementById("error").innerText = `Attestation ${attestationId} does not exist in the Verax Registry queried`;
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+
+    <h1>Verax Fetcher</h1>
+    <label for="contractAddress">Verax Fetcher Contract Address:</label>
+    <input type="text" id="veraxFetcherContractAddress" name="veraxFetcherContractAddress" value="0xd25Cc85a1c87CeB1553e823e46e2890d0a70a33C" style="width: 350px;">
+    <br /> <br />
+    <label for="attestationId">Attestation ID:</label>
+    <input type="text" id="attestationId" name="attestationId" value="0x00000000000000000000000000000000000000000000000000000000000001f4" style="width: 500px;">
+    <br /> <br />
+    <button onclick="callContractFunction()">Get attestation</button>
+    <br /> <br />
+    <div id="result"></div>
+    <br /> <br />
+    <div id="error" style="color: red;"></div>
+</body>
+</html>

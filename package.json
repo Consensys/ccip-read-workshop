@@ -1,0 +1,22 @@
+{
+  "name": "ccip-read-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.15",
+    "hardhat-storage-layout": "^0.1.7"
+  },
+  "dependencies": {
+    "@consensys/linea-state-verifier": "^1.0.1",
+    "@openzeppelin/contracts-upgradeable": "^4.9.6"
+  }
+}
