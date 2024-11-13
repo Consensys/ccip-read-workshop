@@ -32,6 +32,7 @@
         
         window.callVeraxFetcher = async function() {
             try {
+                document.getElementById("error").innerText = "";
                 const veraxFetcherContractAddress = document.getElementById("veraxFetcherContractAddress").value;
                 const attestationId = document.getElementById("attestationId").value;
                 const provider = new ethers.JsonRpcProvider(PROVIDER_URL);
@@ -39,7 +40,8 @@
                 const result = await contract.getAttestation(attestationId, {
                     enableCcipRead: true,
                 });
-                document.getElementById("result").innerText = `Attestation: ${result}`;
+                // don't use innerText in production as it will be interpreted as HTML
+                document.getElementById("result").innerHTML = `Attestation: ${result}`;
 
                 if(result === "0x0000000000000000000000000000000000000000000000000000000000000000"){
                     document.getElementById("error").innerText = `Attestation ${attestationId} does not exist in the Verax Registry queried`;
