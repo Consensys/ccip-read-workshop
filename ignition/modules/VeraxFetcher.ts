@@ -18,12 +18,12 @@ const VeraxFetcherModule = buildModule("VeraxFetcherModule", (m) => {
       throw "Network not supported";
   }
 
-  const nftResolver = m.contract("VeraxFetcher", [
+  const veraxFetcher = m.contract("VeraxFetcher", [
     verifierAddress,
     targetAddress,
   ]);
 
-  return { nftResolver };
+  return { veraxFetcher };
 });
 
 export default VeraxFetcherModule;
