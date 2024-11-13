@@ -2,6 +2,10 @@
 
 Simple example to fetch data from the Verax Registry on Linea using ccip-read
 
+## Link to repo
+
+![alt text](./media/QRCodeLink.png?raw=true)
+
 ## Links of interest
 
 - Linea ccip-read doc: https://docs.linea.build/developers/tooling/cross-chain/ccip-read-gateway
