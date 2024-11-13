@@ -12,7 +12,7 @@ Simple example to fetch data from the Verax Registry on Linea using ccip-read
 - Linea ENS repo: https://github.com/Consensys/linea-ens
 - NFT Resolver repo: https://github.com/Consensys/nft-resolver
 
-## CCIP Read flow on Linea
+## CCIP Read flow for Linea's ENS integration
 
 ![alt text](./media/LineaENSCCIPRead.png?raw=true)
 
