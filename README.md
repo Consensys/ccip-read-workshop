@@ -43,3 +43,16 @@ Open the `ui/demo.html` file in your browser and set the `Verax Fetcher Contract
 You can also change the `Attestation ID` to the one you want to fetch.
 
 When you click on the `Get attestation` button, the ccip-read flow will be triggered and if the attestation exists in the Verax Registry, its id will be displayed, otherwise an error will be shown.
+
+## Get the storage slot index of the attestation
+
+For this example, the storage slot queried is already known:  
+`uint256 constant ATTESTATIONS_SLOT = 102;`
+
+To write your own fetcher contract that answers to your needs, you can use the [hardhat-storage-layout](https://www.npmjs.com/package/hardhat-storage-layout) plugin to have a list of the storage slots for a given contract.  
+Example for the Verax Registry contract:
+
+```bash
+cd contracts/L2
+npx hardhat check
+```

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>VeraxFetcher Interface</title>
+    <title>VeraxFetcher</title>
 </head>
 <body>
 
@@ -46,6 +46,7 @@
                 }
             } catch (error) {
                 console.error(error);
+                document.getElementById("error").innerText = `An error occured: ${error}`;
             }
         }
     </script>
