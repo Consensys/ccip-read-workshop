@@ -44,7 +44,7 @@ You can also change the `Attestation ID` to the one you want to fetch.
 
 When you click on the `Get attestation` button, the ccip-read flow will be triggered and if the attestation exists in the Verax Registry, its id will be displayed, otherwise an error will be shown.
 
-## Get the storage slot index of the attestation
+## Get the storage slot index in the queried contract
 
 For this example, the storage slot queried is already known:  
 `uint256 constant ATTESTATIONS_SLOT = 102;`
